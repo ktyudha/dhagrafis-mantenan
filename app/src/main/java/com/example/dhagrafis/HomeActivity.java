@@ -2,6 +2,7 @@ package com.example.dhagrafis;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,7 +16,9 @@ import android.widget.Toast;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.dhagrafis.controllers.OrderController;
 import com.example.dhagrafis.design.CustomAdapter;
+import com.example.dhagrafis.models.Order;
 import com.example.dhagrafis.models.PaketList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,8 +26,10 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +39,9 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
     ImageView userprof;
 
     private ArrayList<PaketList> paketLists;
+
+    OrderController orderController = new OrderController();
+
     private FirebaseAuth mAuth;
 
 
@@ -46,10 +54,22 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
 
         ListView listView = findViewById(R.id.customlistcard);
         paketLists = setIconAndName();
-        CustomAdapter customAdapter = new CustomAdapter(HomeActivity.this,paketLists);
+        CustomAdapter customAdapter = new CustomAdapter(HomeActivity.this, paketLists);
         listView.setAdapter(customAdapter);
         listView.setOnItemClickListener(this);
 
+        userprof.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Logout();
+            }
+        });
+
+    }
+
+    private void Logout() {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(HomeActivity.this, Login.class));
     }
 
     public void getUserProfile() {
@@ -66,7 +86,6 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
             Picasso.get().load(photoUrl).into(userprof);
 
         }
-        // [END get_user_profile]
     }
 
     private void promoSlider() {
@@ -76,16 +95,26 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         slideModels.add(new SlideModel(R.drawable.promo4, ScaleTypes.FIT));
         slideModels.add(new SlideModel(R.drawable.promo4, ScaleTypes.FIT));
 
-        imageSlider.setImageList(slideModels,ScaleTypes.FIT);
+        imageSlider.setImageList(slideModels, ScaleTypes.FIT);
     }
 
-
+//    public void loadOrder() {
+//
+//        ArrayList<Order> orders = orderController.loadOrder();
+//      for (int i = 0; i<orders.size(); i++) {
+//            Order order = orders.get(i);
+//          .add(order.nameOrder);
+//        }
+//    }
     private ArrayList<PaketList> setIconAndName() {
         paketLists = new ArrayList<>();
 
-        paketLists.add(new PaketList(R.drawable.promo1, "Promo1", "2 Fotografer","Rp 10.000", "Wedding"));
+        paketLists.add(new PaketList(R.drawable.promo1, "BRONZE", "2 Fotografer", "Rp 10.000", "Wedding"));
+        paketLists.add(new PaketList(R.drawable.promo2, "SILVER", "2 Fotografer", "Rp 10.000", "Wedding"));
         return paketLists;
     }
+
+
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
