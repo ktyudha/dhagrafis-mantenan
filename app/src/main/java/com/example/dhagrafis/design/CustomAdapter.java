@@ -48,12 +48,15 @@ public class CustomAdapter extends BaseAdapter {
             holderView = (HolderView) convertView.getTag();
         }
         PaketList list = paketLists.get(position);
-        holderView.iconList.setImageResource(list.getPacketMediaIcon());
-        holderView.paketTitle.setText(list.getPacketMediaTitle());
+//        holderView.iconList.setImageResource(list.getPacketMediaIcon());
+        holderView.paketTitle.setText(list.getName());
+        holderView.paketDetaildesc.setText(list.getDescription());
+        holderView.paketDetailprice.setText(Integer.toString(list.getPrice()));
+        holderView.paketDetailname.setText(list.getCategory());
         return convertView;
     }
 
-    private static class HolderView{
+    static class HolderView{
         private final ImageView iconList;
         private final TextView paketTitle;
         private final TextView paketDetailname;

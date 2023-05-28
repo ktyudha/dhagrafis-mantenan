@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whitegrey"
+    android:orientation="vertical"
+    tools:context=".PaketActivity">
+
+    <RelativeLayout
+        android:id="@+id/cardtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_back"
+            android:src="@drawable/baseline_chevron_left_24" />
+
+        <TextView
+            android:id="@+id/titlePaket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@id/back"
+            android:text="PAKET"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tepaket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titlePaket"
+            android:layout_marginBottom="30dp"
+            android:layout_toEndOf="@id/back"
+            android:text="Abadikan momen terindahmu!"
+            android:textColor="@color/black"
+            android:textSize="10dp" />
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchpaket"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/cardtitle"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="-15dp"
+        android:background="@drawable/search_view_bg"
+        app:iconifiedByDefault="false"
+        app:queryHint="Cari" />
+
+    <LinearLayout
+        android:id="@+id/linecategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_category"
+        android:layout_below="@id/searchpaket"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginVertical="10dp"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:id="@+id/all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Semua"
+            android:textSize="12dp"
+            android:textColor="@color/dark_blue"
+            android:layout_marginLeft="5dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            />
+        <TextView
+            android:id="@+id/wedding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wedding"
+            android:textSize="12dp"
+            android:textColor="@color/dark_blue"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            />
+        <TextView
+            android:id="@+id/akad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Akad"
+            android:textSize="12dp"
+            android:textColor="@color/dark_blue"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            />
+        <TextView
+            android:id="@+id/prewedding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prewedding"
+            android:textSize="12dp"
+            android:textColor="@color/dark_blue"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            />
+        <TextView
+            android:id="@+id/engagement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Engagement"
+            android:textSize="12dp"
+            android:textColor="@color/dark_blue"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/customlistcard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linecategory"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginVertical="2dp" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_bottom" />
+
+</RelativeLayout>

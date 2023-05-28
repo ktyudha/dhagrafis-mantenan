@@ -19,17 +19,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="5dp"
             android:paddingTop="10dp"
             android:paddingBottom="20dp">
-<!--            <com.google.android.material.imageview.ShapeableImageView-->
-<!--                android:layout_marginVertical="40dp"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:src="@drawable/kabah"-->
-<!--                app:shapeAppearanceOverlay="@style/Circular"-->
-<!--                />-->
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/userprofil"
@@ -37,16 +30,7 @@
                 android:layout_height="47dp"
                 android:layout_gravity="center"
                 android:src="@drawable/baseline_person_24"
-                app:shapeAppearanceOverlay="@style/Circular"/>
-
-            <!--        <androidx.cardview.widget.CardView-->
-            <!--            android:layout_width="47dp"-->
-            <!--            android:layout_height="47dp"-->
-            <!--            android:layout_alignParentTop="true"-->
-            <!--            android:backgroundTint="@color/white"-->
-            <!--            app:cardCornerRadius="100dp">-->
-            <!--        </androidx.cardview.widget.CardView>-->
-
+                app:shapeAppearanceOverlay="@style/Circular" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -71,34 +55,11 @@
     </RelativeLayout>
 
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchome"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@id/cardtop"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="-15dp"
-        android:background="@drawable/search_view_bg"
-        app:iconifiedByDefault="false"
-        app:queryHint="Cari" />
-
-    <!--    <androidx.cardview.widget.CardView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="100dp"-->
-    <!--        app:cardBackgroundColor="@color/black"-->
-    <!--        android:layout_below="@id/searchome"-->
-    <!--        android:layout_marginTop="20dp"-->
-    <!--        android:layout_marginHorizontal="50dp"-->
-    <!--        app:cardElevation="20dp"-->
-    <!--        app:cardCornerRadius="20dp">-->
-
-
-    <!--    </androidx.cardview.widget.CardView>-->
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/slider"
         android:layout_width="wrap_content"
         android:layout_height="110dp"
-        android:layout_below="@id/searchome"
+        android:layout_below="@id/cardtop"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="25dp"
         android:layout_marginTop="20dp"
@@ -112,73 +73,118 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/slider"
-        android:layout_marginTop="15dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginHorizontal="25dp">
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="15dp">
 
 
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/wedding"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginHorizontal="15dp">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp">
 
             <ImageButton
+                android:id="@+id/pic1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/whitegrey"
                 android:src="@drawable/masjid"></ImageButton>
 
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/engagement"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginHorizontal="15dp">
-
-            <ImageButton
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/pic1"
+                android:layout_centerInParent="true"
+                android:text="Wedding"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp">
+
+            <ImageButton
+                android:id="@+id/pic2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/whitegrey"
                 android:src="@drawable/zakat"></ImageButton>
 
-        </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pic2"
+                android:layout_centerInParent="true"
+                android:text="Akad"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/prewedding"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginHorizontal="15dp">
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp">
 
             <ImageButton
-                android:layout_width="match_parent"
+                android:id="@+id/pic3"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/whitegrey"
+                android:src="@drawable/sedekah12"></ImageButton>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pic3"
+                android:layout_centerInParent="true"
+                android:text="Prewedding"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp">
+
+            <ImageButton
+                android:id="@+id/pic4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/whitegrey"
                 android:src="@drawable/kabah"></ImageButton>
 
-        </androidx.cardview.widget.CardView><androidx.cardview.widget.CardView
-            android:id="@+id/akad"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginHorizontal="15dp">
-
-            <ImageButton
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/sedekah12"
-                ></ImageButton>
-        </androidx.cardview.widget.CardView>
+                android:layout_below="@id/pic4"
+                android:layout_centerInParent="true"
+                android:text="Engagement"
+                android:textColor="@color/black"
+                android:layout_marginTop="2dp"
+                android:textSize="10dp" />
+
+        </RelativeLayout>
+
+
     </LinearLayout>
+
     <TextView
         android:id="@+id/terekomendasi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rekomendasi"
         android:layout_below="@id/menupilihan"
-        android:layout_marginTop="20dp"
         android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Rekomendasi"
+        android:textColor="@color/black"
         android:textSize="14dp"
-        android:textStyle="bold"
-        android:textColor="@color/black">
+        android:textStyle="bold">
 
     </TextView>
 
@@ -186,10 +192,18 @@
         android:id="@+id/customlistcard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="2dp"
         android:layout_below="@id/terekomendasi"
         android:layout_marginHorizontal="25dp"
-        />
-    <include layout="@layout/bottom_nav"></include>
-
+        android:layout_marginVertical="2dp"
+        android:layout_above="@id/bottomNavigationView"/>
+    <!--    <include layout="@layout/bottom_nav"></include>-->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        app:itemRippleColor="@color/green_soft"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_bottom" />
 </RelativeLayout>

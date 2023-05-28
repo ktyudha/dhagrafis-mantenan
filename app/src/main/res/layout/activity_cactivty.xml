@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/soft_blue"
+    android:orientation="vertical"
+    tools:context=".CreateOrder">
+
+    <RelativeLayout
+        android:id="@+id/cardtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_back"
+            android:src="@drawable/baseline_chevron_left_24" />
+
+        <TextView
+            android:id="@+id/titlePaket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@id/back"
+            android:text="BOOKING"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardtitle"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="200dp">
+        <TextView
+            android:id="@+id/teName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nama Lengkap"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/dark_blue"/>
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_below="@id/teName"/>
+
+        <TextView
+            android:id="@+id/teLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Alamat"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/dark_blue"
+            android:layout_below="@id/name"/>
+
+        <EditText
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/teLocation"
+            />
+
+        <TextView
+            android:id="@+id/teTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Waktu"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/dark_blue"
+            android:layout_below="@id/location"/>
+        <EditText
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/teTime" />
+
+        <TextView
+            android:id="@+id/teNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Catatan"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/dark_blue"
+            android:layout_below="@id/time"/>
+        <EditText
+            android:id="@+id/note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/teNote" />
+
+        <Button
+            android:id="@+id/sed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/note"
+            android:background="@drawable/bg_button"
+            android:text="send" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

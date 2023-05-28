@@ -1,33 +1,24 @@
 package com.example.dhagrafis.models;
 
-public class PaketList {
-    public String iconPkt;
+public class Pakets {
     public String name;
+    public String category;
     public String description;
     public int price;
-    public String category;
 
-    public PaketList() {
+    public Pakets() {
     }
-
     public String getName() {
         return name;
     }
-
-    public String getDescription() {
-        return description;
-    }
-
     public String getCategory() {
         return category;
     }
-
+    public String getDescription() {
+        return description;
+    }
     public int getPrice() {
         return price;
-    }
-
-    public String getIconPkt() {
-        return iconPkt;
     }
 
     public void setName(String name) {
@@ -44,9 +35,5 @@ public class PaketList {
 
     public void setPrice(int price) {
         this.price = price;
-    }
-
-    public void setIconPkt(String iconPkt) {
-        this.iconPkt = iconPkt;
     }
 }
