@@ -4,8 +4,8 @@ public class Order {
    public String nameOrder;
    public String phoneOrder;
    public String paketOrder;
-   public String timeOrder;
-   public String dateOrder;
+   public String datetimeOrder;
+   public String locationOrder;
    public int priceOrder;
 
    public String noteOrder;
@@ -26,12 +26,12 @@ public class Order {
       return paketOrder;
    }
 
-   public String getDateOrder() {
-      return dateOrder;
+   public String getDatetimeOrder() {
+      return datetimeOrder;
    }
 
-   public String getTimeOrder() {
-      return timeOrder;
+   public String getLocationOrder() {
+      return locationOrder;
    }
 
    public int getPriceOrder() {
@@ -54,12 +54,12 @@ public class Order {
       this.paketOrder = paketOrder;
    }
 
-   public void setDateOrder(String dateOrder) {
-      this.dateOrder = dateOrder;
+   public void setDatetimeOrder(String datetimeOrder) {
+      this.datetimeOrder = datetimeOrder;
    }
 
-   public void setTimeOrder(String timeOrder) {
-      this.timeOrder = timeOrder;
+   public void setLocationOrder(String locationOrder) {
+      this.locationOrder = locationOrder;
    }
 
    public void setPriceOrder(int priceOrder) {

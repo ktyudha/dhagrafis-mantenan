@@ -89,7 +89,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private void BottomNavigation() {
-        bottomNavigationView =findViewById(R.id.bottomNavigationView);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -102,6 +102,10 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
                     return true;
                 case R.id.history:
                     startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
+                    finish();
+                    return true;
+                case R.id.person:
+                    startActivity(new Intent(getApplicationContext(), ProfilActivity.class));
                     finish();
                     return true;
             }
@@ -134,20 +138,14 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         ImageSlider imageSlider = findViewById(R.id.slider);
         ArrayList<SlideModel> slideModels = new ArrayList<>();
 
-        slideModels.add(new SlideModel(R.drawable.promo4, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.promo4, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.promo1, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.promo2, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.promo3, ScaleTypes.FIT));
 
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
     }
 
-//    public void loadOrder() {
-//
-//        ArrayList<Order> orders = orderController.loadOrder();
-//      for (int i = 0; i<orders.size(); i++) {
-//            Order order = orders.get(i);
-//          .add(order.nameOrder);
-//        }
-//    }
+
 //    private ArrayList<PaketList> setIconAndName() {
 //        paketLists = new ArrayList<>();
 //
@@ -167,7 +165,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
                     Log.d("firebase", String.valueOf(task.getResult().getValue()));
 
                     paketLists.clear();
-                    for (DataSnapshot postSnapshot: task.getResult().getChildren()) {
+                    for (DataSnapshot postSnapshot : task.getResult().getChildren()) {
                         PaketList paketList = postSnapshot.getValue(PaketList.class);
                         paketLists.add(paketList);
                     }

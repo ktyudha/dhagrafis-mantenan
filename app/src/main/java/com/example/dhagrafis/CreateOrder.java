@@ -58,7 +58,7 @@ public class CreateOrder extends AppCompatActivity {
 
                 order.setNameOrder(edname.getText().toString().trim());
                 order.setPhoneOrder(edloc.getText().toString().trim());
-                order.setTimeOrder(edtime.getText().toString().trim());
+                order.setDatetimeOrder(edtime.getText().toString().trim());
                 order.setNoteOrder(ednote.getText().toString().trim());
                 order.setPriceOrder(100000);
 

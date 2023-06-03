@@ -52,7 +52,7 @@ public class HistoryOrderAdapter extends BaseAdapter {
         Order order = orders.get(position);
 //        holderView.iconList.setImageResource(order.getPacketMediaIcon());
         holderView.nameHist.setText(order.getNameOrder());
-        holderView.prizeHist.setText(order.getPriceOrder());
+//        holderView.prizeHist.setText(order.getPriceOrder());
         return convertView;
     }
 

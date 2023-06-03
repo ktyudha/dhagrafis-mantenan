@@ -87,8 +87,8 @@
                 android:id="@+id/pic1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/whitegrey"
-                android:src="@drawable/masjid"></ImageButton>
+                android:background="@drawable/bg_category"
+                android:src="@drawable/couple"></ImageButton>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -110,8 +110,8 @@
                 android:id="@+id/pic2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/whitegrey"
-                android:src="@drawable/zakat"></ImageButton>
+                android:background="@drawable/bg_category"
+                android:src="@drawable/couple"></ImageButton>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -133,8 +133,8 @@
                 android:id="@+id/pic3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/whitegrey"
-                android:src="@drawable/sedekah12"></ImageButton>
+                android:background="@drawable/bg_category"
+                android:src="@drawable/couple"></ImageButton>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -156,8 +156,8 @@
                 android:id="@+id/pic4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/whitegrey"
-                android:src="@drawable/kabah"></ImageButton>
+                android:background="@drawable/bg_category"
+                android:src="@drawable/couple"></ImageButton>
 
             <TextView
                 android:layout_width="wrap_content"

@@ -11,7 +11,7 @@ public class OrderController {
     public ArrayList<Order> loadOrder() {
         Order placeHolder = new Order();
         placeHolder.nameOrder = "Yudha";
-        placeHolder.priceOrder = "1000.000";
+        placeHolder.priceOrder = 1000000;
 
         orders.add(placeHolder);
         return orders;
