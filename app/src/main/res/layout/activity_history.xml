@@ -52,7 +52,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/cardtitle"
         android:layout_marginHorizontal="25dp"
-        android:layout_marginVertical="2dp" />
+        android:layout_marginVertical="2dp"
+        android:layout_above="@id/bottomNavigationView"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"

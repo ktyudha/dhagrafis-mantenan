@@ -11,4 +11,14 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="user_login">User Login</string>
     <string name="selamat_datang">Selamat Datang</string>
+
+
+<!--    String Array Location    -->
+
+    <string-array name="list_location">
+        <item>Mojokerto</item>
+        <item>Sidoarjo</item>
+        <item>Surabaya</item>
+        <item>Malang</item>
+    </string-array>
 </resources>

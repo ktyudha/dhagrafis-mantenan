@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,8 +27,8 @@ import java.util.ArrayList;
 
 public class PaketActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    BottomNavigationView bottomNavigationView;
-    TextView teAll, teWedding, teAkad, tePrewedd, teEng;
+    BottomNavigationView bottomNavigationView, categoryNavigation;
+    ImageButton btnBack;
 
     private ArrayList<PaketList> paketLists;
 
@@ -40,27 +42,67 @@ public class PaketActivity extends AppCompatActivity implements AdapterView.OnIt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paket);
 
-        teAll = findViewById(R.id.all);
-        teWedding = findViewById(R.id.wedding);
-        teAkad = findViewById(R.id.akad);
-        tePrewedd = findViewById(R.id.prewedding);
-        teEng = findViewById(R.id.engagement);
+        listViewCategory();
+        regComponent();
+        orderByCategory();
+        BottomNavigation();
+        goBack();
+    }
 
+    private void regComponent() {
+        btnBack = findViewById(R.id.back);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        categoryNavigation = findViewById(R.id.linecategory);
+    }
 
-        dbRef = FirebaseDatabase.getInstance().getReference().child("pakets").child("wedding");
+    private void listViewCategory() {
         paketLists = new ArrayList<>();
 
         ListView listView = findViewById(R.id.customlistcard);
         customAdapter = new CustomAdapter(PaketActivity.this, paketLists);
         listView.setAdapter(customAdapter);
         listView.setOnItemClickListener(this);
+    }
 
-        BottomNavigation();
-        getOrders();
+
+    private void goBack() {
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PaketActivity.this, HomeActivity.class));
+            }
+        });
+    }
+
+
+    private void orderByCategory() {
+        categoryNavigation.setSelectedItemId(R.id.wedding);
+        getOrders("wedding");
+
+        categoryNavigation.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.wedding:
+                    paketLists.clear();
+                    getOrders("wedding");
+                    return true;
+                case R.id.prewedding:
+                    paketLists.clear();
+                    getOrders("prewedding");
+                    return true;
+                case R.id.akad:
+                    paketLists.clear();
+                    getOrders("akad");
+                    return true;
+                case R.id.engagement:
+                    paketLists.clear();
+                    getOrders("engagement");
+                    return true;
+            }
+            return false;
+        });
     }
 
     private void BottomNavigation() {
-        bottomNavigationView =findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.paket);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -75,12 +117,19 @@ public class PaketActivity extends AppCompatActivity implements AdapterView.OnIt
                     startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
                     finish();
                     return true;
+                case R.id.person:
+                    startActivity(new Intent(getApplicationContext(), ProfilActivity.class));
+                    finish();
+                    return true;
             }
             return false;
         });
     }
 
-    private void getOrders() {
+    private void getOrders(String id) {
+
+        dbRef = FirebaseDatabase.getInstance().getReference("pakets").child(id);
+
         dbRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -89,8 +138,8 @@ public class PaketActivity extends AppCompatActivity implements AdapterView.OnIt
                 } else {
                     Log.d("firebase", String.valueOf(task.getResult().getValue()));
 
-                    paketLists.clear();
-                    for (DataSnapshot postSnapshot: task.getResult().getChildren()) {
+
+                    for (DataSnapshot postSnapshot : task.getResult().getChildren()) {
                         PaketList paketList = postSnapshot.getValue(PaketList.class);
                         paketLists.add(paketList);
                     }
@@ -107,6 +156,12 @@ public class PaketActivity extends AppCompatActivity implements AdapterView.OnIt
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
         PaketList list = paketLists.get(position);
-        startActivity(new Intent(PaketActivity.this, CreateOrder.class));
+
+        Intent intent = new Intent(PaketActivity.this, CreateOrder.class);
+        intent.putExtra("name", list.name);
+        intent.putExtra("category", list.category);
+        intent.putExtra("description", list.description);
+        intent.putExtra("price", list.price);
+        startActivity(intent);
     }
 }

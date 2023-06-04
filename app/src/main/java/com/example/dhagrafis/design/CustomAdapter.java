@@ -51,7 +51,7 @@ public class CustomAdapter extends BaseAdapter {
 //        holderView.iconList.setImageResource(list.getPacketMediaIcon());
         holderView.paketTitle.setText(list.getName());
         holderView.paketDetaildesc.setText(list.getDescription());
-        holderView.paketDetailprice.setText(Integer.toString(list.getPrice()));
+        holderView.paketDetailprice.setText("Rp "+Integer.toString(list.getPrice()));
         holderView.paketDetailname.setText(list.getCategory());
         return convertView;
     }

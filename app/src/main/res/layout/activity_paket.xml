@@ -58,68 +58,16 @@
         app:iconifiedByDefault="false"
         app:queryHint="Cari" />
 
-    <LinearLayout
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/linecategory"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_category"
+        android:layout_height="30dp"
         android:layout_below="@id/searchpaket"
-        android:layout_marginHorizontal="25dp"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="10dp"
-        android:layout_centerHorizontal="true">
-        <TextView
-            android:id="@+id/all"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Semua"
-            android:textSize="12dp"
-            android:textColor="@color/dark_blue"
-            android:layout_marginLeft="5dp"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="4dp"
-            />
-        <TextView
-            android:id="@+id/wedding"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Wedding"
-            android:textSize="12dp"
-            android:textColor="@color/dark_blue"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="4dp"
-            />
-        <TextView
-            android:id="@+id/akad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Akad"
-            android:textSize="12dp"
-            android:textColor="@color/dark_blue"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="4dp"
-            />
-        <TextView
-            android:id="@+id/prewedding"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Prewedding"
-            android:textSize="12dp"
-            android:textColor="@color/dark_blue"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="4dp"
-            />
-        <TextView
-            android:id="@+id/engagement"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Engagement"
-            android:textSize="12dp"
-            android:textColor="@color/dark_blue"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="4dp"
-            />
-
-    </LinearLayout>
+        android:background="@drawable/bg_category"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_paket" />
 
     <ListView
         android:id="@+id/customlistcard"
@@ -127,7 +75,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/linecategory"
         android:layout_marginHorizontal="25dp"
-        android:layout_marginVertical="2dp" />
+        android:layout_marginVertical="2dp"
+        android:layout_above="@id/bottomNavigationView"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"

@@ -50,9 +50,11 @@ public class HistoryOrderAdapter extends BaseAdapter {
             holderView = (HolderView) convertView.getTag();
         }
         Order order = orders.get(position);
-//        holderView.iconList.setImageResource(order.getPacketMediaIcon());
-        holderView.nameHist.setText(order.getNameOrder());
-//        holderView.prizeHist.setText(order.getPriceOrder());
+        holderView.nameHist.setText(order.getPaketOrder());
+        holderView.cateHist.setText(order.getCategoryOrder());
+        holderView.namePemesan.setText("a.n. "+order.getNameOrder());
+        holderView.descHist.setText(order.getDescriptionOrder());
+//        holderView.prizeHist.setText("Rp "+String.valueOf(order.getPriceOrder()));
         return convertView;
     }
 
@@ -60,12 +62,14 @@ public class HistoryOrderAdapter extends BaseAdapter {
         private final ImageView iconList;
         private final TextView nameHist;
         private final TextView cateHist;
+        private final TextView namePemesan;
         private final TextView descHist;
         private final TextView prizeHist;
 
 
         public HolderView(View view) {
             iconList = view.findViewById(R.id.listpaket);
+            namePemesan = view.findViewById(R.id.custOrder);
             nameHist = view.findViewById(R.id.nameHistory);
             cateHist = view.findViewById(R.id.cateHistory);
             descHist = view.findViewById(R.id.descHistory);

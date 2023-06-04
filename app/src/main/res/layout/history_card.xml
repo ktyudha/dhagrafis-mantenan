@@ -1,73 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginHorizontal="20dp"
     app:cardCornerRadius="10dp"
-    app:cardUseCompatPadding="true"
-    app:cardPreventCornerOverlap="true">
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true">
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp">
+
         <ImageView
+            android:id="@+id/listpaket"
             android:layout_width="96dp"
             android:layout_height="96dp"
-            android:id="@+id/listpaket"
-            android:layout_margin="10dp"
-            android:src="@drawable/ic_launcher_background"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/nameHistory"
-            android:text="BRONZE"
-            android:textSize="28dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_toRightOf="@id/listpaket"
-            android:layout_marginLeft="15dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/cateHistory"
-            android:text="Wedding"
-            android:textSize="16dp"
-            android:textColor="@color/black"
-            android:textStyle="italic"
-            android:layout_toRightOf="@id/nameHistory"
-            android:layout_marginLeft="5dp"
-            android:layout_alignBottom="@id/nameHistory"
-            android:layout_marginBottom="3dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/descHistory"
-            android:text="2 Fotografer dan 3 Jam kerja"
-            android:textSize="16dp"
-            android:textStyle="normal"
-            android:layout_toRightOf="@id/listpaket"
-            android:layout_marginLeft="15dp"
-            android:layout_below="@id/nameHistory"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            />
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/couple_bw" />
+
         <TextView
+            android:id="@+id/nameHistory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/priceHistory"
-            android:text="Finished"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:background="@drawable/search_view_bg"
-            android:layout_toRightOf="@id/listpaket"
             android:layout_marginLeft="15dp"
-            android:layout_below="@id/descHistory"
+            android:layout_toRightOf="@id/listpaket"
+            android:text="BRONZE"
+            android:textColor="@color/black"
+            android:textSize="28dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/cateHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/nameHistory"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="3dp"
+            android:layout_toRightOf="@id/nameHistory"
+            android:text="Wedding"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/custOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cateHistory"
+            android:layout_marginHorizontal="15dp"
             android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/listpaket"
+            android:text="a.n. Kurniawan Try Yudha"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/descHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/custOrder"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/listpaket"
+            android:text="2 Fotografer dan 3 Jam kerja"
+            android:textSize="14dp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/priceHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/descHistory"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/listpaket"
+            android:background="@drawable/search_view_bg"
             android:paddingHorizontal="20dp"
             android:paddingVertical="2dp"
-            />
+            android:text="Lunas"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
     </RelativeLayout>
 
 </com.google.android.material.card.MaterialCardView>

@@ -1,9 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfilActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/cardtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_back"
+            android:src="@drawable/baseline_chevron_left_24" />
+
+        <TextView
+            android:id="@+id/titlePaket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@id/back"
+            android:text="PROFIL"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tepaket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titlePaket"
+            android:layout_marginBottom="30dp"
+            android:layout_toEndOf="@id/back"
+            android:text="Detail Akun"
+            android:textColor="@color/black"
+            android:textSize="10dp" />
+    </RelativeLayout>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iconuser"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/baseline_person_24"
+        app:shapeAppearanceOverlay="@style/Circular"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/nameuser"
+        android:layout_marginBottom="20dp"/>
+    <TextView
+        android:id="@+id/nameuser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kurniawan Try Yudha"
+        android:textSize="22dp"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"/>
+    <TextView
+        android:id="@+id/emailuser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ktyudha@gmail.com"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/nameuser"
+        android:textColor="@color/black"
+        android:textSize="12dp"/>
+    <Button
+        android:id="@+id/btnOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="0dp"
+        android:text="Log Out"
+        android:textAllCaps="false"
+        android:layout_below="@id/emailuser"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        app:itemRippleColor="@color/green_soft"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_bottom" />
+</RelativeLayout>

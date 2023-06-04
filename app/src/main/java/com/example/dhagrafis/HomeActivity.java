@@ -48,7 +48,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
 
     TextView userlogin;
     ImageView userprof;
-    ImageButton pic;
+    ImageButton picWedding, picAkad, picPrewedding, picEngagement;
     BottomNavigationView bottomNavigationView;
 
     private ArrayList<PaketList> paketLists;
@@ -79,14 +79,41 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         getOrders();
 
 
-        pic = findViewById(R.id.pic1);
-        pic.setOnClickListener(new View.OnClickListener() {
+        picWedding = findViewById(R.id.pic1);
+        picAkad = findViewById(R.id.pic2);
+        picPrewedding = findViewById(R.id.pic3);
+        picEngagement = findViewById(R.id.pic4);
+
+        picWedding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, PaketActivity.class));
+                Intent intent = new Intent(HomeActivity.this, PaketActivity.class);
+                startActivity(intent);
+            }
+        });
+        picAkad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, PaketActivity.class);
+                startActivity(intent);
+            }
+        });
+        picPrewedding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, PaketActivity.class);
+                startActivity(intent);
+            }
+        });
+        picEngagement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, PaketActivity.class);
+                startActivity(intent);
             }
         });
     }
+
 
     private void BottomNavigation() {
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
@@ -113,10 +140,6 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         });
     }
 
-//    private void Logout() {
-//        FirebaseAuth.getInstance().signOut();
-//        startActivity(new Intent(HomeActivity.this, Login.class));
-//    }
 
     public void getUserProfile() {
         // [START get_user_profile]
@@ -145,16 +168,6 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
     }
 
-
-//    private ArrayList<PaketList> setIconAndName() {
-//        paketLists = new ArrayList<>();
-//
-//        paketLists.add(new PaketList(R.drawable.promo1, "BRONZE", "2 Fotografer", "Rp 10.000", "Wedding"));
-//        paketLists.add(new PaketList(R.drawable.promo2, "SILVER", "2 Fotografer", "Rp 10.000", "Wedding"));
-//        paketLists.add(new PaketList(R.drawable.promo3, "GOLD", "2 Fotografer", "Rp 10.000", "Wedding"));
-//        return paketLists;
-//    }
-
     private void getOrders() {
         dbRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -181,8 +194,13 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
         PaketList list = paketLists.get(position);
-        startActivity(new Intent(HomeActivity.this, CreateOrder.class));
-//        Toast.makeText(HomeActivity.this, "Berhasil", Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(HomeActivity.this, CreateOrder.class);
+        intent.putExtra("name", list.name);
+        intent.putExtra("category", list.category);
+        intent.putExtra("description", list.description);
+        intent.putExtra("price", list.price);
+        startActivity(intent);
     }
 
 

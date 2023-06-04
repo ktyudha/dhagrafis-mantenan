@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/soft_blue"
     android:orientation="vertical"
     tools:context=".CreateOrder">
 
@@ -34,81 +33,179 @@
             android:textStyle="bold" />
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/groupOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardtitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="60dp">
+
+        <ImageView
+            android:id="@+id/logoCouple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:src="@drawable/couple" />
+
+        <TextView
+            android:id="@+id/orName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/logoCouple"
+            android:text="Paket"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/orCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="9dp"
+            android:layout_toRightOf="@id/orName"
+            android:text="wedding"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/orDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/orName"
+            android:layout_toRightOf="@id/logoCouple"
+            android:text="1 Fotografer 1 Videografer"
+            android:textColor="@color/black"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/orPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/orDescription"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/logoCouple"
+            android:text="Rp 100000"
+            android:textColor="@color/black"
+            android:textSize="10dp" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cardtitle"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="200dp">
+        android:layout_below="@id/groupOrder"
+        android:layout_marginHorizontal="70dp">
+
         <TextView
             android:id="@+id/teName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nama Lengkap"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:textColor="@color/dark_blue"/>
+            android:textColor="@color/dark_blue"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_below="@id/teName"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@id/teName"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tePhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:text="Nomor HP"
+            android:textColor="@color/dark_blue"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tePhone"
+            android:textSize="12dp" />
 
         <TextView
             android:id="@+id/teLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/phone"
             android:text="Alamat"
-            android:textSize="20dp"
-            android:textStyle="bold"
             android:textColor="@color/dark_blue"
-            android:layout_below="@id/name"/>
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/location"
+        <Spinner
+            android:id="@+id/spinnerLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/teLocation"
-            />
+            android:layout_below="@id/teLocation" />
+
 
         <TextView
             android:id="@+id/teTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/spinnerLocation"
             android:text="Waktu"
-            android:textSize="20dp"
-            android:textStyle="bold"
             android:textColor="@color/dark_blue"
-            android:layout_below="@id/location"/>
-        <EditText
-            android:id="@+id/time"
-            android:layout_width="match_parent"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/dateTimeButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/teTime" />
+            android:layout_below="@id/teTime"
+            android:minHeight="0dp"
+            android:text="Pilih"
+            android:textAllCaps="false"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/viewSelectDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10-05-2023 10:00"
+            android:textSize="10dp"
+            android:layout_below="@id/teTime"
+            android:layout_toRightOf="@id/dateTimeButton"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="20dp"
+            />
 
         <TextView
             android:id="@+id/teNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/dateTimeButton"
             android:text="Catatan"
-            android:textSize="20dp"
-            android:textStyle="bold"
             android:textColor="@color/dark_blue"
-            android:layout_below="@id/time"/>
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/note"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/teNote" />
+            android:layout_below="@id/teNote"
+            android:textSize="12dp" />
 
         <Button
             android:id="@+id/sed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/note"
+            android:layout_marginTop="10dp"
             android:background="@drawable/bg_button"
+            android:minHeight="0dp"
             android:text="send" />
     </RelativeLayout>
 

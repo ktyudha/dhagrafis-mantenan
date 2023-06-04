@@ -92,6 +92,10 @@ public class HistoryActivity extends AppCompatActivity implements AdapterView.On
                     return true;
                 case R.id.history:
                     return true;
+                case R.id.person:
+                    startActivity(new Intent(getApplicationContext(), ProfilActivity.class));
+                    finish();
+                    return true;
             }
             return false;
         });
@@ -99,8 +103,8 @@ public class HistoryActivity extends AppCompatActivity implements AdapterView.On
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-        PaketList list = paketLists.get(position);
-        Toast.makeText(HistoryActivity.this, "Berhasil", Toast.LENGTH_SHORT).show();
+//        PaketList list = paketLists.get(position);
+//        Toast.makeText(HistoryActivity.this, list.name, Toast.LENGTH_SHORT).show();
     }
 }
 
