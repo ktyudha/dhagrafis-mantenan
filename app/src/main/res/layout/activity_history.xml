@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whitegrey"
+    android:background="@color/white"
     tools:context=".HistoryActivity">
     <RelativeLayout
         android:id="@+id/cardtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white">
+        android:background="@color/brownsoft1">
 
         <ImageButton
             android:id="@+id/back"
@@ -28,7 +28,7 @@
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/back"
             android:text="HISTORY"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16dp"
 
             android:textStyle="bold" />
@@ -41,19 +41,32 @@
             android:layout_marginBottom="30dp"
             android:layout_toEndOf="@id/back"
             android:text="Hasil puas harga pas!"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="10dp" />
     </RelativeLayout>
-
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchpaket"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/cardtitle"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="-15dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/search_view_bg"
+        app:iconifiedByDefault="false"
+        app:queryHint="Cari" />
 
     <ListView
         android:id="@+id/customlistcard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cardtitle"
+        android:layout_below="@id/searchpaket"
         android:layout_marginHorizontal="25dp"
         android:layout_marginVertical="2dp"
-        android:layout_above="@id/bottomNavigationView"/>
+        android:layout_above="@id/bottomNavigationView"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"/>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"

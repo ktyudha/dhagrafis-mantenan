@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.dhagrafis.design.RupiahConvert;
 import com.example.dhagrafis.models.Order;
 import com.example.dhagrafis.models.Pakets;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,6 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
+import java.util.Locale;
 
 public class CreateOrder extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -46,7 +48,7 @@ public class CreateOrder extends AppCompatActivity implements AdapterView.OnItem
     ImageView lgCouple;
 
     String selectedLocation, selectedDateTime, namePkt, descPkt, catePkt;
-    int pricePkt;
+    int pricePkt, priceLoc;
 
     private FirebaseUser user;
     private DatabaseReference dbRef;
@@ -104,7 +106,7 @@ public class CreateOrder extends AppCompatActivity implements AdapterView.OnItem
         nmPkt.setText(namePkt);
         desPkt.setText(descPkt);
         ctPkt.setText(catePkt);
-        priPkt.setText("Rp " + String.valueOf(pricePkt));
+
     }
 
     private void goBack() {
@@ -123,6 +125,8 @@ public class CreateOrder extends AppCompatActivity implements AdapterView.OnItem
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
     }
+
+
 
     private void chooseDateTime() {
         dateTimeButton.setOnClickListener(new View.OnClickListener() {
@@ -150,9 +154,10 @@ public class CreateOrder extends AppCompatActivity implements AdapterView.OnItem
                                         calendar.set(Calendar.MINUTE, minute);
 
                                         // Format tanggal dan waktu sesuai kebutuhan
+                                        String monthName = new java.text.DateFormatSymbols(Locale.ENGLISH).getMonths()[monthOfYear];
                                         // Anda dapat memodifikasi pola format sesuai keinginan
-                                        selectedDateTime = String.format("%02d-%02d-%d %02d:%02d",
-                                                dayOfMonth, monthOfYear + 1, year, hourOfDay, minute);
+                                        selectedDateTime = String.format("%d %s %d %02d:%02d",
+                                                dayOfMonth, monthName , year, hourOfDay, minute);
 
                                         selectDateTime.setText(selectedDateTime);
                                     }
@@ -167,10 +172,20 @@ public class CreateOrder extends AppCompatActivity implements AdapterView.OnItem
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
         selectedLocation = parent.getItemAtPosition(position).toString();
 
-//        Toast.makeText(this, "Selected item: " + String.valueOf(priceLoc), Toast.LENGTH_SHORT).show();
+        RupiahConvert rupiahConvert = new RupiahConvert();
+        String sel = parent.getItemAtPosition(position).toString();
+        if (sel.equals("Mojokerto")) {
+            priceLoc = 0;
+        } else if (sel.equals("Sidoarjo")) {
+            priceLoc = 50000;
+        } else if (sel.equals("Surabaya")) {
+            priceLoc = 75000;
+        } else {
+            priceLoc = 100000 ;
+        }
+        priPkt.setText(String.valueOf(rupiahConvert.convertToRupiah( pricePkt + priceLoc)));
     }
 
     @Override

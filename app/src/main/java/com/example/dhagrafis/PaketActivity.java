@@ -15,10 +15,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dhagrafis.design.CustomAdapter;
+import com.example.dhagrafis.design.RupiahConvert;
 import com.example.dhagrafis.models.PaketList;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -29,18 +32,18 @@ public class PaketActivity extends AppCompatActivity implements AdapterView.OnIt
 
     BottomNavigationView bottomNavigationView, categoryNavigation;
     ImageButton btnBack;
-
+    Button btnBookNw;
+    TextView teName, teCat, teDesc, tePrice;
     private ArrayList<PaketList> paketLists;
-
     DatabaseReference dbRef;
-
     CustomAdapter customAdapter;
-    String nameChild;
+    private BottomSheetDialog bottomSheetDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paket);
+
 
         listViewCategory();
         regComponent();
@@ -152,16 +155,46 @@ public class PaketActivity extends AppCompatActivity implements AdapterView.OnIt
         });
     }
 
+    private void openBottomSheet(String name, String category, String description, int price) {
+        View bottomSheetView = getLayoutInflater().inflate(R.layout.bottomsheet_content, null);
+        bottomSheetDialog = new BottomSheetDialog(PaketActivity.this);
+        bottomSheetDialog.setContentView(bottomSheetView);
+
+        RupiahConvert rupiahConvert = new RupiahConvert();
+
+        teName = bottomSheetView.findViewById(R.id.title_detail);
+        teCat = bottomSheetView.findViewById(R.id.paket_detail);
+        teDesc = bottomSheetView.findViewById(R.id.desc_detail);
+        tePrice = bottomSheetView.findViewById(R.id.price_detail);
+        btnBookNw = bottomSheetView.findViewById(R.id.btnBookNow);
+
+        teName.setText(name);
+        teCat.setText(category + " -");
+        teDesc.setText(description);
+        tePrice.setText(String.valueOf(rupiahConvert.convertToRupiah(price)));
+
+        BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from((View) bottomSheetView.getParent());
+        bottomSheetBehavior.setPeekHeight(BottomSheetBehavior.PEEK_HEIGHT_AUTO);
+
+        bottomSheetDialog.show();
+
+        btnBookNw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PaketActivity.this, CreateOrder.class);
+                intent.putExtra("name", name);
+                intent.putExtra("category", category);
+                intent.putExtra("description", description);
+                intent.putExtra("price", price);
+                startActivity(intent);
+            }
+        });
+    }
+
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
         PaketList list = paketLists.get(position);
-
-        Intent intent = new Intent(PaketActivity.this, CreateOrder.class);
-        intent.putExtra("name", list.name);
-        intent.putExtra("category", list.category);
-        intent.putExtra("description", list.description);
-        intent.putExtra("price", list.price);
-        startActivity(intent);
+        openBottomSheet(list.name, list.category, list.description, list.price);
     }
 }

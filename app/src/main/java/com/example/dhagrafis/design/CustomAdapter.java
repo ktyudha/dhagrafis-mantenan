@@ -47,12 +47,13 @@ public class CustomAdapter extends BaseAdapter {
         } else {
             holderView = (HolderView) convertView.getTag();
         }
+        RupiahConvert rupiahConvert = new RupiahConvert();
         PaketList list = paketLists.get(position);
 //        holderView.iconList.setImageResource(list.getPacketMediaIcon());
         holderView.paketTitle.setText(list.getName());
         holderView.paketDetaildesc.setText(list.getDescription());
-        holderView.paketDetailprice.setText("Rp "+Integer.toString(list.getPrice()));
-        holderView.paketDetailname.setText(list.getCategory());
+        holderView.paketDetailprice.setText(String.valueOf(rupiahConvert.convertToRupiah(list.getPrice())));
+//        holderView.paketDetailname.setText(list.getCategory());
         return convertView;
     }
 

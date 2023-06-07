@@ -42,6 +42,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         btnSignInGoogle = findViewById(R.id.Signgoogle);
+
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -57,10 +58,7 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    private void SignIn() {
-        Intent intent = gsc.getSignInIntent();
-        startActivityForResult(intent, RC_SIGN_IN);
-    }
+
 
     private void SecondActivity() {
         finish();
@@ -76,7 +74,7 @@ public class Login extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RC_SIGN_IN) {
@@ -111,6 +109,10 @@ public class Login extends AppCompatActivity {
                         }
                     }
                 });
+    }
+    private void SignIn() {
+        Intent intent = gsc.getSignInIntent();
+        startActivityForResult(intent, RC_SIGN_IN);
     }
     private void updateUI(FirebaseUser user) {
     }

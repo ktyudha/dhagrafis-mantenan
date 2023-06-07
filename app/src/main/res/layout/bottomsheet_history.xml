@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Isi konten Bottom Sheet di sini -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp">
+        <TextView
+            android:id="@+id/garis"
+            android:layout_width="30dp"
+            android:layout_height="3dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/shape_line" />
+
+        <ImageView
+            android:id="@+id/image_detail"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@id/garis"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/manten_vector" />
+
+        <TextView
+            android:id="@+id/paket_hisdet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/image_detail"
+            android:layout_marginTop="10dp"
+            android:text="BRONZE"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/cat_hisdet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/paket_hisdet"
+            android:text="Wedding -"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/desc_hisdet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/paket_hisdet"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/cat_hisdet"
+            android:text="1 Fotografer 1 Videografer" />
+
+
+        <TextView
+            android:id="@+id/name_hisdet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/desc_hisdet"
+            android:layout_marginTop="10dp"
+            android:text="a.n. Kurniawan Try Yudha"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/phone_hisdet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name_hisdet"
+            android:text="085848250548"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/loc_hisdet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/phone_hisdet"
+            android:text="Mojokerto, "
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/time_hisdet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/phone_hisdet"
+            android:layout_toRightOf="@id/loc_hisdet"
+            android:text="10 Juni 2023 10:00 WIB"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/note_hisdet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/time_hisdet"
+            android:text="*Gaada catatannya" />
+
+        <TextView
+            android:id="@+id/price_hisdet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/note_hisdet"
+            android:text="750.000"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lunas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/note_hisdet"
+            android:layout_toRightOf="@id/price_hisdet"
+            android:text="Lunas"
+            android:textColor="@color/brownsoft3"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="15dp"
+            android:background="@drawable/bg_category"
+            android:paddingHorizontal="10dp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/price_hisdet">
+
+        <Button
+            android:id="@+id/btnFinish"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_category"
+            android:minHeight="0dp"
+            android:text="Close"
+            android:textAllCaps="false"
+            android:layout_marginHorizontal="5dp"/>
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_delete_24"
+            android:background="@drawable/bg_category"
+            android:layout_toRightOf="@id/btnFinish"
+            android:padding="7dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="5dp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

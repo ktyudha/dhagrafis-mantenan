@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomSearchView" parent="Widget.AppCompat.SearchView">
+        <!-- Ubah warna ikon -->
+        <item name="android:iconTint">@color/black</item>
+        <!-- Ubah warna teks pada SearchView -->
+<!--        <item name="android:textColor">@color/text_color</item>-->
+        <!-- Ubah warna teks pada hint (placeholder) SearchView -->
+<!--        <item name="android:textColorHint">@color/hint_color</item>-->
+    </style>
+</resources>

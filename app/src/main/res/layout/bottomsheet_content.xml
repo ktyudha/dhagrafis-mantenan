@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Isi konten Bottom Sheet di sini -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp">
+        <TextView
+            android:id="@+id/garis"
+            android:layout_width="30dp"
+            android:layout_height="3dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/shape_line"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/image_detail"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@id/garis"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/manten_vector"
+            android:background="@drawable/bg_back"/>
+
+        <TextView
+            android:id="@+id/title_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/image_detail"
+            android:layout_marginTop="10dp"
+            android:text="BRONZE"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/paket_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_detail"
+            android:text="Wedding -"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/desc_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_detail"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/paket_detail"
+            android:text="1 Fotografer 1 Videografer" />
+
+        <TextView
+            android:id="@+id/price_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/desc_detail"
+            android:layout_marginTop="5dp"
+            android:text="750.000"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnBookNow"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/price_detail"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_category"
+            android:minHeight="0dp"
+            android:text="Booking Now"
+            android:textAllCaps="false" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
